@@ -18,31 +18,36 @@ public class runners implements Runnable {
 	
 	public void run() {
 		
-		int i = 0;
-		long ms = 0;
+		int i = 1;
+		
 		
 		System.out.println( "Runner " + getName() + " starts" );
 		
-		while( i < 5 ) {
+		try {
 			
-			try {
+			Thread.sleep(1000);
+			
+		} catch( InterruptedException e ) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		while( i < 11 ) {
+			
+			if(i < 10){
 				
-				ms = ( long )( Math.random() * 5 + 1 ) * 1000;
-				Thread.sleep( ms );
+				System.out.println( getName() + ":  " + i + " km" );
 				
-				System.out.println( getName() + " is running at " + ms + " k/h" );
+			}else {
 				
-			} catch( InterruptedException e ) {
-				
-				e.printStackTrace();
+				System.out.println( getName() + " finishes the race" );
 				
 			}
 			
 			i++;
 			
 		}
-		
-		System.out.println( getName() + " finishes the race" );
 		
 	}
 	
