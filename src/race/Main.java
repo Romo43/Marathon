@@ -13,10 +13,14 @@ public class Main {
 		
 		Thread HT = new Thread(h_2);
 		runner_3 h_3 = new runner_3();
+		runner_4 h_4 = new runner_4();
+		runner_5 h_5 = new runner_5();
 		
 		h_1.start();
 		HT.start();
 		h_3.start();
+		h_4.start();
+		h_5.start();
 		
 	}
 }
