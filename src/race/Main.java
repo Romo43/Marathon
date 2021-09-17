@@ -8,19 +8,21 @@ public class Main {
 		
 		System.out.println( "The race starts" );
 		
-		runner_1 h_1 = new runner_1();
-		runner_2 h_2 = new runner_2();
+		runners arrayObjetos[] = new runners[ 5 ];
 		
-		Thread HT = new Thread(h_2);
-		runner_3 h_3 = new runner_3();
-		runner_4 h_4 = new runner_4();
-		runner_5 h_5 = new runner_5();
+		arrayObjetos[ 0 ] = new runners( "Usain Bolt" );
+		arrayObjetos[ 1 ] = new runners( "Flash" );
+		arrayObjetos[ 2 ] = new runners( "Speedy Gonzales" );
+		arrayObjetos[ 3 ] = new runners( "Shazam" );
+		arrayObjetos[ 4 ] = new runners( "Sonic" );
 		
-		h_1.start();
-		HT.start();
-		h_3.start();
-		h_4.start();
-		h_5.start();
+		for ( int i = 0; i < arrayObjetos.length; i++ ){
+			
+            Thread h1 = new Thread( arrayObjetos[ i ] );
+            h1.start();
+            
+        }
 		
 	}
+	
 }
