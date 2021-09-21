@@ -1,5 +1,6 @@
 package race;
 
+
 public class runners implements Runnable {
 
 	String name;
@@ -22,11 +23,14 @@ public class runners implements Runnable {
 
 		if(this.lvl=="Experto")
 		{
-			vel = (int) Math.floor(Math.random()*(1-18)+18);
+			this.vel = (int) Math.floor(Math.random()*(1-18)+18);
+
 		}else if(this.lvl=="Avanzado"){
-			vel = (int) Math.floor(Math.random()*(25-15)+25);
+
+			this.vel = (int) Math.floor(Math.random()*(25-15)+25);
 		}else{
-			vel = (int) Math.floor(Math.random()*(30-40)+40);
+
+			this.vel = (int) Math.floor(Math.random()*(30-40)+40);
 		}
 
 		return this.lvl;
@@ -48,8 +52,10 @@ public class runners implements Runnable {
 			
 		}
 
+		getLevel();
+
 		while( i < 11 ) {
-			
+
 			if(i < 10){
 
 				try {
