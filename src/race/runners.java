@@ -5,18 +5,25 @@ public class runners implements Runnable {
 
 	String name;
 	String lvl;
+	String nbr;
 	int vel;
 	
-	public runners( String n, String h) {
+	public runners( String n, String h, String u) {
 		
 		this.name = n;
 		this.lvl = h;
+		this.nbr = u;
 	}
 	
 	public String getName() {
 		
 		return this.name;
 		
+	}
+	public String getNumber() {
+
+		return this.nbr;
+
 	}
 
 	public String getLevel(){
@@ -40,7 +47,7 @@ public class runners implements Runnable {
 		
 		int i = 1;
 
-		System.out.println( "Runner " + getName() + " starts" );
+		System.out.println( "Runner " + getName() + " " + getNumber() + ":" + " starts" );
 
 		try {
 			
@@ -64,11 +71,11 @@ public class runners implements Runnable {
 					e.printStackTrace();
 				}
 
-				System.out.println( getName() + ":  " + i + " km" );
+				System.out.println( getName() + " " + getNumber() + ":  " + i + " km" );
 				
 			}else {
 				
-				System.out.println( getName() + " finishes the race" );
+				System.out.println( getName() + " " + getNumber() + ":" + " finishes the race" );
 				
 			}
 			
