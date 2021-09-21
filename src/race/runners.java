@@ -3,17 +3,33 @@ package race;
 public class runners implements Runnable {
 
 	String name;
+	String lvl;
+	int vel;
 	
 	public runners( String n ) {
 		
 		this.name = n;
-		
+		this.lvl = h;
 	}
 	
 	public String getName() {
 		
 		return this.name;
 		
+	}
+	
+	public String getLevel(){
+
+		if(this.lvl=="Experto")
+		{
+			vel = (int) Math.floor(Math.random()*(1-18)+18);
+		}else if(this.lvl=="Avanzado"){
+			vel = (int) Math.floor(Math.random()*(25-15)+25);
+		}else{
+			vel = (int) Math.floor(Math.random()*(30-40)+40);
+		}
+
+		return this.lvl;
 	}
 	
 	public void run() {
@@ -35,6 +51,14 @@ public class runners implements Runnable {
 		while( i < 11 ) {
 			
 			if(i < 10){
+				
+				getLevel();
+
+				try {
+					Thread.sleep(vel);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				
 				System.out.println( getName() + ":  " + i + " km" );
 				
