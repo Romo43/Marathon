@@ -1,6 +1,5 @@
 package race;
 
-
 public class runners implements Runnable {
 
 	String name;
@@ -8,11 +7,12 @@ public class runners implements Runnable {
 	String nbr;
 	int vel;
 	
-	public runners( String n, String h, String u) {
+	public runners( String n, String h, String u ) {
 		
 		this.name = n;
 		this.lvl = h;
 		this.nbr = u;
+
 	}
 	
 	public String getName() {
@@ -20,6 +20,7 @@ public class runners implements Runnable {
 		return this.name;
 		
 	}
+
 	public String getNumber() {
 
 		return this.nbr;
@@ -28,19 +29,21 @@ public class runners implements Runnable {
 
 	public String getLevel(){
 
-		if(this.lvl=="Experto")
-		{
-			this.vel = (int) Math.floor(Math.random()*(1-18)+18);
+		if( this.lvl == "Experto" ) {
 
-		}else if(this.lvl=="Avanzado"){
+			this.vel = ( int ) Math.floor( Math.random() * ( 1 - 18 ) + 18 );
 
-			this.vel = (int) Math.floor(Math.random()*(25-15)+25);
-		}else{
+		}else if ( this.lvl == "Avanzado" ) {
 
-			this.vel = (int) Math.floor(Math.random()*(30-40)+40);
+			this.vel = ( int ) Math.floor( Math.random() * ( 25 - 15 ) + 25 );
+
+		} else {
+
+			this.vel = ( int ) Math.floor( Math.random() * ( 30 - 40 ) + 40 );
 		}
 
 		return this.lvl;
+
 	}
 
 	public void run() {
@@ -51,7 +54,7 @@ public class runners implements Runnable {
 
 		try {
 			
-			Thread.sleep(2000);
+			Thread.sleep(2000 );
 			
 		} catch( InterruptedException e ) {
 			
@@ -66,14 +69,18 @@ public class runners implements Runnable {
 			if(i < 10){
 
 				try {
-					Thread.sleep(vel);
+
+					Thread.sleep( vel );
+
 				} catch (InterruptedException e) {
+
 					e.printStackTrace();
+
 				}
 
 				System.out.println( getName() + " " + getNumber() + ":  " + i + " km" );
 				
-			}else {
+			} else {
 				
 				System.out.println( getName() + " " + getNumber() + ":" + " finishes the race" );
 				

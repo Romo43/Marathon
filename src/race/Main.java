@@ -2,14 +2,12 @@ package race;
 
 import java.lang.Thread;
 
-
 public class Main {
 	
 	public static void main( String[] args ) {
 		
 		System.out.println( "The race starts" );
-		
-		
+
 		runners h_1 = new runners( "Usain Bolt", "Experto", "1");
 		Thread h1 = new Thread( h_1 );
 		
@@ -40,7 +38,6 @@ public class Main {
 		runners h_10 = new runners( "Don Julio" , "Novato", "10");
 		Thread h10 = new Thread( h_10 );
 
-
 		h1.start();
 		h2.start();
 		h3.start();
@@ -51,8 +48,6 @@ public class Main {
 		h8.start();
 		h9.start();
 		h10.start();
-
-
 
 	}
 
