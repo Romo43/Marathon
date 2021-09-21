@@ -37,8 +37,6 @@ public class runners implements Runnable {
 		int i = 1;
 
 
-
-
 		System.out.println( "Runner " + getName() + " starts" );
 
 		try {
@@ -51,19 +49,16 @@ public class runners implements Runnable {
 			
 		}
 
-
-
 		while( i < 11 ) {
 			
 			if(i < 10){
-
-			getLevel();
 
 				try {
 					Thread.sleep(vel);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+
 				System.out.println( getName() + ":  " + i + " km" );
 				
 			}else {
