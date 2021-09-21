@@ -36,7 +36,6 @@ public class runners implements Runnable {
 		
 		int i = 1;
 
-
 		System.out.println( "Runner " + getName() + " starts" );
 
 		try {
