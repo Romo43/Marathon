@@ -61,7 +61,7 @@ public class runners implements Runnable {
 	// Water event
 	public void event( int km )  {
 
-		if( km == 3 || km == 6 || km == 9){
+		if( km % 3 == 0 ){
 			if ( randomNum( 1, 100 ) <= 20 ) {
 
 				try {
