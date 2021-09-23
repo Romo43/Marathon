@@ -7,12 +7,15 @@ public class runners implements Runnable {
 	String nbr;
 	int vel;
 
-	public static int randomNum(int minimo,int maximo){
+	// Random number
+	public static int randomNum( int minimo, int maximo ){
 
-		int num=(int)Math.floor(Math.random()*(maximo-minimo+1)+(minimo));
+		int num = ( int ) Math.floor( Math.random() * ( maximo - minimo + 1 ) + ( minimo ));
 		return num;
+
 	}
-	
+
+	// Call runner
 	public runners( String n, String h, String u ) {
 		
 		this.name = n;
@@ -20,50 +23,66 @@ public class runners implements Runnable {
 		this.nbr = u;
 
 	}
-	
+
+	// Get name of runner
 	public String getName() {
 		
 		return this.name;
 		
 	}
 
+	// Get number of runner
 	public String getNumber() {
 
 		return this.nbr;
 
 	}
 
-	public String getLevel(){
+	// Get level of runner
+	public String getLevel() {
 
 		if( this.lvl == "Experto" ) {
 
-			this.vel = randomNum(1,18);
+			this.vel = randomNum( 1, 18 );
 
-		}else if ( this.lvl == "Avanzado" ) {
+		} else if ( this.lvl == "Avanzado" ) {
 
-			this.vel = randomNum(15,25);
+			this.vel = randomNum( 15, 25 );
 
 		} else {
 
-			this.vel = randomNum(30,40);
+			this.vel = randomNum( 30, 40 );
 		}
 
 		return this.lvl;
 
 	}
 
-	public void event(int km)  {
+	// Water event
+	public void event( int km )  {
 
-		if(randomNum(1,100)<=20){
-			try {
-					System.out.println( getName() + " " + getNumber() + " Ha decidido tomar agua en el:  " + km + " km" );
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		if( km == 3 || km == 6 || km == 9){
+			if ( randomNum( 1, 100 ) <= 20 ) {
+
+				try {
+
+					System.out.println( "Runner " + getName() + " #" + getNumber() + " has decided to drink water in the :  " + km + " km" );
+					Thread.sleep(2000 );
+
+				} catch (InterruptedException e) {
+
+					e.printStackTrace();
+
+				}
+			}else{
+				System.out.println( getName() + " #" + getNumber() + ":  " + km + " km" );
 			}
+		}else{
+			System.out.println( getName() + " #" + getNumber() + ":  " + km + " km" );
 		}
 	};
 
+	// Run
 	public void run() {
 		
 		int i = 1;
@@ -82,39 +101,27 @@ public class runners implements Runnable {
 
 		getLevel();
 
-
 		while( i < 11 ) {
 
-			if(i < 10){
+			if( i < 10){
 
 				try {
 
-					Thread.sleep( vel * 400 );
+					Thread.sleep( vel * 200 );
 
-				} catch (InterruptedException e) {
+				} catch ( InterruptedException e ) {
 
 					e.printStackTrace();
 
 				}
 
-				System.out.println( getName() + " " + getNumber() + ":  " + i + " km" );
-
-				switch (i){
-					case 3:
-						event(i);
-						break;
-					case 6:
-						event(i);
-						break;
-					case 9:
-						event(i);
-						break;
-				}
+				event( i );
 
 				
 			} else {
 				
 				System.out.println( getName() + " " + getNumber() + ":" + " finishes the race" );
+
 				
 			}
 			

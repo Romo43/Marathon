@@ -5,7 +5,6 @@ import java.lang.Thread;
 public class Main {
 	
 	public static void main( String[] args ) {
-		
 		System.out.println( "The race starts" );
 
 		runners h_1 = new runners( "Usain Bolt", "Experto", "1");
