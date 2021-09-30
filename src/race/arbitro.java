@@ -4,15 +4,15 @@ public class arbitro implements Runnable{
 
     Thread T1, T2,T3,T4,T5,T6,T7,T8,T9,T10;
 
-    int lug;
+    public static int lug;
     int[] matriz = new int[10];
     String[] lugar = new String[10];
+    public static String[] estado = new String[10];
 
 
 
     public void run(){
         // Espacio que no interfiere en nada
-
 
 
         // Fin del espacio
@@ -68,7 +68,11 @@ public class arbitro implements Runnable{
 
             int aux = i + 1;
 
-            System.out.println( "[ "+ aux +" ]" + lugar[i]);
+            if(estado[i] == null)
+            {
+                estado[i] = "Abandono";
+            }
+            System.out.println( "[ "+ aux +" ]" + lugar[i] + " " + estado[i]);
         }
 
         System.out.println("*==*==*==*==*==*==*==*==*==*==*==*==*==*");

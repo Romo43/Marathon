@@ -62,8 +62,6 @@ public class Main {
 		h9.start();
 		h10.start();
 
-
-
 		arb.run();
 
 	}

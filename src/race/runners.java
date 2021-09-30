@@ -7,6 +7,9 @@ public class runners implements Runnable {
 	String nbr;
 	int vel;
 	double apoyo;
+	public static String status = "Terminado";
+	public static String[] carrera = new String[10];
+	int aux=0;
 
 	// Random number
 	public static int randomNum( int minimo, int maximo ){
@@ -115,26 +118,25 @@ public class runners implements Runnable {
 					e.printStackTrace();
 
 				}
-
 				event( i );
-
 				if(i % 2 == 0 && i != 0 && i != 10){
 					this.vel = Injury(this.vel);
 				}
 
-				
 			} else {
 				
 				System.out.println( getName() + " " + getNumber() + ":" + " finishes the race" );
+				arbitro.estado[arbitro.lug] = status;
+				System.out.println(arbitro.lug);
 
-				
 			}
-			
 			i++;
-			
 		}
 		
 	}
+
+	// Public estatus
+
 
 	// Injury events
 	public int Injury(int vel){
@@ -159,12 +161,13 @@ public class runners implements Runnable {
 
 		if (num == 10) {
 			System.out.println("¡OH! ¡NO! " + getName() + " El corredor sufrio una grave lesión, decide abandonar por su bien");
-			Thread.currentThread().notify();
+			Thread.currentThread().stop();
 		}
 
 		System.out.println("El numero tirado fue de:" + num);
 
 		return vel;
+
 	}
-	
+
 }
