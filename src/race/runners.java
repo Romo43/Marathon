@@ -6,6 +6,7 @@ public class runners implements Runnable {
 	String lvl;
 	String nbr;
 	int vel;
+	double apoyo;
 
 	// Random number
 	public static int randomNum( int minimo, int maximo ){
@@ -107,7 +108,7 @@ public class runners implements Runnable {
 
 				try {
 
-					Thread.sleep( vel * 200 );
+					Thread.sleep( vel * 100 );
 
 				} catch ( InterruptedException e ) {
 
@@ -116,6 +117,10 @@ public class runners implements Runnable {
 				}
 
 				event( i );
+
+				if(i % 2 == 0 && i != 0 && i != 10){
+					this.vel = Injury(this.vel);
+				}
 
 				
 			} else {
@@ -129,6 +134,37 @@ public class runners implements Runnable {
 			
 		}
 		
+	}
+
+	// Injury events
+	public int Injury(int vel){
+
+		int num = randomNum(1,10);
+
+		if( num < 7 ){
+			System.out.println("¡OH! ¡NO! " + getName() + " Estuvo apunto de tener un accidente, se mantiene bien");
+		}
+
+		if( num == 7 || num == 8){
+			System.out.println("¡OH! ¡NO! " + getName() + " ha sufrido una lesión leve");
+			apoyo = (double) vel;
+			vel = (int) Math.round((apoyo * 0.20) + vel);
+		}
+
+		if (num == 9) {
+			System.out.println("¡OH! ¡NO! " + getName() + "  ha sufrido una lesión grave");
+			apoyo = (double) vel;
+			vel = (int) Math.round((apoyo * 0.50) + vel);
+		}
+
+		if (num == 10) {
+			System.out.println("¡OH! ¡NO! " + getName() + " El corredor sufrio una grave lesión, decide abandonar por su bien");
+			Thread.currentThread().notify();
+		}
+
+		System.out.println("El numero tirado fue de:" + num);
+
+		return vel;
 	}
 	
 }

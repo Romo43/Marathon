@@ -37,6 +37,20 @@ public class Main {
 		runners h_10 = new runners( "Don Julio" , "Novato", "10");
 		Thread h10 = new Thread( h_10 );
 
+		arbitro meta = new arbitro(h1,h2,h3,h4,h5,h6,h7,h8,h9,h10);
+		Thread arb = new Thread(meta);
+
+		h1.setName("Usain Bolt");
+		h2.setName("Flash");
+		h3.setName("Speed");
+		h4.setName("Superman");
+		h5.setName("Shazam");
+		h6.setName("Elon");
+		h7.setName("Spiderman");
+		h8.setName("Ironman");
+		h9.setName("Duende Verde");
+		h10.setName("Don Julio");
+
 		h1.start();
 		h2.start();
 		h3.start();
@@ -47,6 +61,10 @@ public class Main {
 		h8.start();
 		h9.start();
 		h10.start();
+
+
+
+		arb.run();
 
 	}
 
