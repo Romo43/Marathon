@@ -11,71 +11,117 @@ public class arbitro implements Runnable{
 
 
 
-    public void run(){
+    public void run() {
         // Espacio que no interfiere en nada
 
 
         // Fin del espacio
-        while(lug != 10){
+        while (lug != 10) {
 
-            if(this.search((int) T1.getId(),this.lug)){
+            if (this.search((int) T1.getId(), this.lug)) {
                 this.IsAliveD(this.T1, this.lug);
             }
 
-            if(this.search((int) T2.getId(),this.lug)){
+            if (this.search((int) T2.getId(), this.lug)) {
                 this.IsAliveD(this.T2, this.lug);
             }
 
-            if(this.search((int) T3.getId(),this.lug)){
+            if (this.search((int) T3.getId(), this.lug)) {
                 this.IsAliveD(this.T3, this.lug);
             }
 
-            if(this.search((int) T4.getId(),this.lug)){
+            if (this.search((int) T4.getId(), this.lug)) {
                 this.IsAliveD(this.T4, this.lug);
             }
 
-            if(this.search((int) T5.getId(),this.lug)){
+            if (this.search((int) T5.getId(), this.lug)) {
                 this.IsAliveD(this.T5, this.lug);
             }
 
-            if(this.search((int) T6.getId(),this.lug)){
+            if (this.search((int) T6.getId(), this.lug)) {
                 this.IsAliveD(this.T6, this.lug);
             }
 
-            if(this.search((int) T7.getId(),this.lug)){
+            if (this.search((int) T7.getId(), this.lug)) {
                 this.IsAliveD(this.T7, this.lug);
             }
 
-            if(this.search((int) T8.getId(),this.lug)){
+            if (this.search((int) T8.getId(), this.lug)) {
                 this.IsAliveD(this.T8, this.lug);
             }
 
-            if(this.search((int) T9.getId(),this.lug)){
+            if (this.search((int) T9.getId(), this.lug)) {
                 this.IsAliveD(this.T9, this.lug);
             }
 
-            if(this.search((int) T10.getId(),this.lug)){
+            if (this.search((int) T10.getId(), this.lug)) {
                 this.IsAliveD(this.T10, this.lug);
             }
 
 
-
         }
 
-        System.out.println("*==*==*==*==*==*==*==*==*==*==*==*==*==*");
+        Cambio();
+        Burbuja(estado, lugar);
+        tabla_ranking();
 
-        for(int i=0;i <= 9; i++){
+    }
+/*
+    public void Ordenar(){
+        for (int i= 0; i<=10; i++){
 
-            int aux = i + 1;
+            if(estado[i]=="Abandono"){
+                estado[i] = estado[i+1];
+            }else {
 
-            if(estado[i] == null)
-            {
-                estado[i] = "Abandono";
             }
-            System.out.println( "[ "+ aux +" ]" + lugar[i] + " " + estado[i]);
+
         }
+    }
+*/
+
+    public void tabla_ranking(){
+        int aux=0;
 
         System.out.println("*==*==*==*==*==*==*==*==*==*==*==*==*==*");
+        for(int i = 0;i<=9;i++){
+            aux = aux + 1;
+            System.out.println("[ " + aux + " ]" + lugar[i] + " " + estado[i]);
+        }
+        System.out.println("*==*==*==*==*==*==*==*==*==*==*==*==*==*");
+    }
+
+    public void Cambio(){
+        for(int i = 0; i <= 9; i++){
+            if(estado[i]==null){
+                estado[i] = "0";            }
+        }
+    }
+
+    public void Burbuja(String[] array, String[] corredor){
+        String var;
+        String Runner;
+
+        for(int i=0; i < 9-1 ;i++){
+            for(int j=9; j > 0;j--){
+                if(Integer.parseInt(array[j]) > Integer.parseInt(array[j-1])){
+                    var = array[j];
+                    Runner = corredor[j];
+                    array[j] = array [j-1];
+                    corredor[j] = corredor [j-1];
+                    array[j-1] = var;
+                    corredor[j-1] = Runner;
+                }
+            }
+        }
+
+        for(int i=0;i<=9;i++){
+            if(array[i]=="0"){
+                array[i] = "Abandono";
+            }else {
+                array[i]= "Terminado";
+            }
+        }
 
     }
 

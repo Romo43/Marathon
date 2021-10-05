@@ -7,7 +7,7 @@ public class runners implements Runnable {
 	String nbr;
 	int vel;
 	double apoyo;
-	public static String status = "Terminado";
+	public static String status = "1";
 	public static String[] carrera = new String[10];
 	int aux=0;
 
